@@ -1,10 +1,13 @@
-from django.http import HttpResponse
-from django.views.decorators.csrf import csrf_exempt
+import os
 import json
 import requests
 
-VERIFY_TOKEN = 'azambot_token'
-PAGE_ACCESS_TOKEN = 'YOUR_ACCESS_TOKEN'
+from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+
+# Environment'dan tokenlarni olamiz
+PAGE_ACCESS_TOKEN = os.environ.get('PAGE_ACCESS_TOKEN')
+VERIFY_TOKEN = os.environ.get('VERIFY_TOKEN')
 
 @csrf_exempt
 def webhook(request):

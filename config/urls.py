@@ -1,8 +1,8 @@
 from django.contrib import admin
-from django.urls import path
-from bot.views import webhook
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('webhook/', webhook),
+    path('', include('bot.urls')),  
 ]
+
